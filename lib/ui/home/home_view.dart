@@ -1,9 +1,11 @@
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:tiktok_flutter/app/app.router.dart';
 import 'package:tiktok_flutter/app/app_base_viewmodel.dart';
 import 'package:tiktok_flutter/di/locator.dart';
+import 'package:tiktok_flutter/services/firebase_service.dart';
 import 'package:tiktok_flutter/ui/detail/detail_view.dart';
 
 import 'HomeViewModel.dart';
@@ -37,6 +39,7 @@ class HomeView extends StatelessWidget {
 
               }, child: Text("Go to Detail")),
               Text("Welcom tiktok app"),
+              Text("${FirebaseAuth.instance.currentUser?.isAnonymous}"),
             ],
           ))),
         )

@@ -1,9 +1,11 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:tiktok_flutter/di/locator.dart';
 
 import '../constants/theme.dart';
+import '../firebase_options.dart';
 import '../ui/home/home_view.dart';
 import 'app.router.dart';
 import 'app_base_viewmodel.dart';
@@ -12,7 +14,9 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await setupLocator();
-
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
